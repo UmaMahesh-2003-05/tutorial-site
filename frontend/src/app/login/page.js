@@ -16,7 +16,7 @@ export default function LoginPage() {
     setError('');
 
     try {
-      const res = await fetch('http://localhost:5000/api/login', {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
@@ -26,7 +26,7 @@ export default function LoginPage() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || 'Login failed');
 
-      const userRes = await fetch('http://localhost:5000/api/me', {
+      const userRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}:5000/api/me`, {
         method: 'GET',
         credentials: 'include',
       });

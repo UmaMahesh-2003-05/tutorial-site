@@ -34,7 +34,7 @@ export default function TutorialsPage() {
   useEffect(() => {
     const fetchTutorials = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/tutorials');
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/tutorials`);
         const data = await response.json();
         setTutorials(data);
       } catch (error) {

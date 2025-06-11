@@ -32,7 +32,7 @@ export default function AdminPanelPage() {
 
   const fetchTutorials = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/tutorials");
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/tutorials`);
       const data = await res.json();
       setTutorials(data);
     } catch (error) {
@@ -54,8 +54,8 @@ export default function AdminPanelPage() {
 
     const method = editingId ? "PUT" : "POST";
     const url = editingId
-      ? `http://localhost:5000/api/tutorials/${editingId}`
-      : "http://localhost:5000/api/tutorials/create";
+      ? `${process.env.NEXT_PUBLIC_API_URL}/api/tutorials/${editingId}`
+      : `${process.env.NEXT_PUBLIC_API_URL}/api/tutorials/create`;
 
     try {
       const res = await fetch(url, {
@@ -96,7 +96,7 @@ export default function AdminPanelPage() {
     if (!confirm) return;
 
     try {
-      const res = await fetch(`http://localhost:5000/api/tutorials/${id}`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/tutorials/${id}`, {
         method: "DELETE",
         credentials: "include", // ✅ include token
       });

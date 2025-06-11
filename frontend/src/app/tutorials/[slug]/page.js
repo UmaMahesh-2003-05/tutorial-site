@@ -21,7 +21,7 @@ export default function TutorialDetailPage() {
     if (slug) {
       const fetchTutorial = async () => {
         try {
-          const res = await fetch(`http://localhost:5000/api/tutorials/${slug}`);
+          const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/tutorials/${slug}`);
           const data = await res.json();
           setTutorial(data);
           extractTOC(data.content);
