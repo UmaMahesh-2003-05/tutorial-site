@@ -56,95 +56,95 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-white text-gray-800">
 
-{/* Hero Section with Animated Slider */}
-<AnimatePresence>
-      <section className="min-h-screen bg-[url('/bgimg1.jpg')] bg-cover bg-center flex items-center justify-center overflow-hidden py-16 px-4 sm:px-6 lg:px-8">
-        <div className="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
-        
-        <div className="max-w-4xl mx-auto text-center relative z-10">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={{
-              hidden: { opacity: 0 },
-              visible: { 
-                opacity: 1,
-                transition: { staggerChildren: 0.2 }
-              }
-            }}
-          >
-            <motion.h1
-              className="text-4xl tracking-tight font-extrabold sm:text-5xl md:text-5xl"
-              variants={{
-                hidden: { y: 20, opacity: 0 },
-                visible: { 
-                  y: 0, 
-                  opacity: 1,
-                  transition: { type: 'spring', stiffness: 100 }
-                }
-              }}
-            >
-              <motion.span
-                className="block text-white drop-shadow-md"
-                whileHover={{ scale: 1.02 }}
-              >
-                Transform With LearningCurve
-              </motion.span>
-              <motion.span 
-                className="block text-green-400 drop-shadow-md"
-                whileHover={{ scale: 1.02 }}
-              >
-                Become a Creator,
-              </motion.span>{' '}
-              <motion.span 
-                className="block text-amber-400 drop-shadow-md"
-                whileHover={{ scale: 1.02 }}
-              >
-                Not Just a Coder
-              </motion.span>
-            </motion.h1>
+      {/* Hero Section with Animated Slider */}
+      <AnimatePresence>
+        <section className="min-h-screen bg-[url('/bgimg1.jpg')] bg-cover bg-center flex items-center justify-center overflow-hidden py-16 px-4 sm:px-6 lg:px-8">
+          <div className="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
 
-            <motion.p
-              className="mt-6 text-lg text-white/90 sm:text-xl max-w-2xl mx-auto font-medium"
-              variants={{
-                hidden: { y: 20, opacity: 0 },
-                visible: { 
-                  y: 0, 
-                  opacity: 1,
-                  transition: { ease: "easeOut", duration: 0.5 }
-                }
-              }}
-            >
-              From your first "Hello World" to building full-stack projects — our interactive 
-              platform empowers you to learn by doing, at your pace, on your terms.
-            </motion.p>
-
-            <motion.div 
-              className="mt-10 flex flex-col sm:flex-row justify-center gap-4"
+          <div className="max-w-4xl mx-auto text-center relative z-10">
+            <motion.div
+              initial="hidden"
+              animate="visible"
               variants={{
                 hidden: { opacity: 0 },
-                visible: { 
+                visible: {
                   opacity: 1,
-                  transition: { staggerChildren: 0.1 }
+                  transition: { staggerChildren: 0.2 }
                 }
               }}
             >
-              <MotionLink
-                href="/signup"
-                className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-[#1a274d] bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10"
-                whileHover={{ 
-                  scale: 1.05,
-                  boxShadow: "0 5px 15px rgba(165, 180, 252, 0.3)"
+              <motion.h1
+                className="text-4xl tracking-tight font-extrabold sm:text-5xl md:text-5xl"
+                variants={{
+                  hidden: { y: 20, opacity: 0 },
+                  visible: {
+                    y: 0,
+                    opacity: 1,
+                    transition: { type: 'spring', stiffness: 100 }
+                  }
                 }}
-                whileTap={{ scale: 0.98 }}
               >
-                Take Your First Step
-              </MotionLink>
+                <motion.span
+                  className="block text-white drop-shadow-md"
+                  whileHover={{ scale: 1.02 }}
+                >
+                  Transform With LearningCurve
+                </motion.span>
+                <motion.span
+                  className="block text-green-400 drop-shadow-md"
+                  whileHover={{ scale: 1.02 }}
+                >
+                  Become a Creator,
+                </motion.span>{' '}
+                <motion.span
+                  className="block text-amber-400 drop-shadow-md"
+                  whileHover={{ scale: 1.02 }}
+                >
+                  Not Just a Coder
+                </motion.span>
+              </motion.h1>
+
+              <motion.p
+                className="mt-6 text-lg text-white/90 sm:text-xl max-w-2xl mx-auto font-medium"
+                variants={{
+                  hidden: { y: 20, opacity: 0 },
+                  visible: {
+                    y: 0,
+                    opacity: 1,
+                    transition: { ease: "easeOut", duration: 0.5 }
+                  }
+                }}
+              >
+                From your first "Hello World" to building full-stack projects — our interactive
+                platform empowers you to learn by doing, at your pace, on your terms.
+              </motion.p>
+
+              <motion.div
+                className="mt-10 flex flex-col sm:flex-row justify-center gap-4"
+                variants={{
+                  hidden: { opacity: 0 },
+                  visible: {
+                    opacity: 1,
+                    transition: { staggerChildren: 0.1 }
+                  }
+                }}
+              >
+                <MotionLink
+                  href="/signup"
+                  className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-[#1a274d] bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10"
+                  whileHover={{
+                    scale: 1.05,
+                    boxShadow: "0 5px 15px rgba(165, 180, 252, 0.3)"
+                  }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  Take Your First Step
+                </MotionLink>
+              </motion.div>
             </motion.div>
-          </motion.div>
-        </div>
-      </section>
-    </AnimatePresence>
+          </div>
+        </section>
+      </AnimatePresence>
 
       {/* Goals Section */}
       <section className="bg-[#e0e7ff] py-20">
@@ -223,7 +223,7 @@ export default function AboutPage() {
             Why Are You Still Waiting?
           </motion.h2>
           <p className="text-lg mb-8">
-            Whether you're a student, a job-seeker, 
+            Whether you're a student, a job-seeker,
             or a tech enthusiast — there's no better time than now to start your journey into technology.
           </p>
           <Link
