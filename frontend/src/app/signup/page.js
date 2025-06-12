@@ -41,7 +41,7 @@ export default function SignupPage() {
       {/* Left Side - Illustration (2/3 width, full height) */}
       <div className="w-2/3 h-screen text-white flex flex-col items-end justify-start p-10">
   <p className="text-3xl font-semibold  max-w-2xl text-white bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-none p-6 rounded-2xl shadow-xl">
-    You're exactly where you need to be. Keep going.
+    You&rsquo;re exactly where you need to be. Keep going.
   </p>
 </div>
       {/* Right Side - Signup Form (1/3 width, full height) */}

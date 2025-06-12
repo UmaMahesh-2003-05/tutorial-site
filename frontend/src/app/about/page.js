@@ -115,7 +115,7 @@ export default function AboutPage() {
                   }
                 }}
               >
-                From your first "Hello World" to building full-stack projects — our interactive
+                From your first &quot;Hello World&quot; to building full-stack projects — our interactive
                 platform empowers you to learn by doing, at your pace, on your terms.
               </motion.p>
 
@@ -223,8 +223,8 @@ export default function AboutPage() {
             Why Are You Still Waiting?
           </motion.h2>
           <p className="text-lg mb-8">
-            Whether you're a student, a job-seeker,
-            or a tech enthusiast — there's no better time than now to start your journey into technology.
+            Whether you&rsquo;re a student, a job-seeker,
+            or a tech enthusiast — there&rsquo;s no better time than now to start your journey into technology.
           </p>
           <Link
             href="/signup"

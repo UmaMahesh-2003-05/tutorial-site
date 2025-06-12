@@ -125,7 +125,7 @@ export default function MobileAppSection() {
                     animate={{ opacity: 1 }}
                   >
                     <Check className="h-5 w-5" />
-                    <span>You'll be notified when the app launches!</span>
+                    <span>You&rsquo;ll be notified when the app launches!</span>
                   </motion.div>
                 )}
               </motion.form>
