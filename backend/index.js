@@ -10,7 +10,8 @@ const cookieParser = require('cookie-parser');
 const app = express();
 
 app.use(cors({
-  origin: 'http://localhost:3000',
+  //origin: 'http://localhost:3000',
+  origin: 'https://tutorial-site-59e7.vercel.app/',
   credentials: true
 }));
 app.use(express.json());
