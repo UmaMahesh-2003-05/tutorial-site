@@ -12,7 +12,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await axios.get('/api/me');
+        const res = await axios.get('/api/me', { withCredentials: true });
         setUser(res.data);
       } catch (err) {
         setUser(null);
