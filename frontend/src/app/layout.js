@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from '@/app/context/AuthContext';
 import LayoutClient from '@/components/LayoutClient';
+import Script from "next/script"; // ✅ Import Script for loading external JS
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,6 +26,49 @@ export default function RootLayout({ children }) {
         <AuthProvider>
           <LayoutClient>{children}</LayoutClient>
         </AuthProvider>
+
+        {/* ✅ Chatbase Script (Safe and Correctly Scoped) */}
+        <Script
+          id="chatbase"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function () {
+                if (
+                  !window.chatbase ||
+                  typeof window.chatbase !== 'function' ||
+                  window.chatbase("getState") !== "initialized"
+                ) {
+                  const cbFunc = (...args) => {
+                    if (!cbFunc.q) cbFunc.q = [];
+                    cbFunc.q.push(args);
+                  };
+                  const proxy = new Proxy(cbFunc, {
+                    get(target, prop) {
+                      if (prop === 'q') return target.q;
+                      return (...args) => target(prop, ...args);
+                    }
+                  });
+                  window.chatbase = proxy;
+                }
+
+                const onLoad = function () {
+                  const script = document.createElement("script");
+                  script.src = "https://www.chatbase.co/embed.min.js";
+                  script.id = "BYbrdU55aQy-IyLtEAdHh";
+                  script.setAttribute("domain", "www.chatbase.co");
+                  document.body.appendChild(script);
+                };
+
+                if (document.readyState === "complete") {
+                  onLoad();
+                } else {
+                  window.addEventListener("load", onLoad);
+                }
+              })();
+            `,
+          }}
+        />
       </body>
     </html>
   );

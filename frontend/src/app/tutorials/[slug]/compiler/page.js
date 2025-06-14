@@ -56,21 +56,21 @@ export default function Compiler() {
         </h1>
         <div className="flex gap-2">
           <button
-  onClick={() => setDarkMode(!darkMode)}
-  className={`w-10 h-10 flex items-center justify-center rounded-full transition-colors duration-300
+            onClick={() => setDarkMode(!darkMode)}
+            className={`w-10 h-10 flex items-center justify-center rounded-full transition-colors duration-300
     ${darkMode ? 'bg-gray-700 hover:bg-gray-600' : 'bg-gray-300 hover:bg-gray-400'}`}
-  title="Toggle Theme"
->
-  {darkMode ? (
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
-      <path d="M10 2a8 8 0 106.32 3.16A9 9 0 0110 2z" />
-    </svg>
-  ) : (
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-800" viewBox="0 0 20 20" fill="currentColor">
-      <path fillRule="evenodd" d="M10 2a1 1 0 01.993.883L11 3v1a1 1 0 01-1.993.117L9 4V3a1 1 0 011-1zm0 12a4 4 0 100-8 4 4 0 000 8zm-7-3a1 1 0 01.117 1.993L3 13a1 1 0 01-.117-1.993L3 11zm14 0a1 1 0 01.117 1.993L17 13a1 1 0 01-.117-1.993L17 11zM4.222 4.222a1 1 0 011.415 0l.707.707a1 1 0 01-1.415 1.415l-.707-.707a1 1 0 010-1.415zm11.314 0a1 1 0 011.415 1.415l-.707.707a1 1 0 01-1.415-1.415l.707-.707zM2 10a1 1 0 01.117 1.993L2 12a1 1 0 01-.117-1.993L2 10zm16 0a1 1 0 01.117 1.993L18 12a1 1 0 01-.117-1.993L18 10zM4.222 15.778a1 1 0 011.415-1.415l.707.707a1 1 0 01-1.415 1.415l-.707-.707zm11.314 0a1 1 0 011.415-1.415l.707.707a1 1 0 01-1.415 1.415l-.707-.707z" clipRule="evenodd" />
-    </svg>
-  )}
-</button>
+            title="Toggle Theme"
+          >
+            {darkMode ? (
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M10 2a8 8 0 106.32 3.16A9 9 0 0110 2z" />
+              </svg>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-800" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M10 2a1 1 0 01.993.883L11 3v1a1 1 0 01-1.993.117L9 4V3a1 1 0 011-1zm0 12a4 4 0 100-8 4 4 0 000 8zm-7-3a1 1 0 01.117 1.993L3 13a1 1 0 01-.117-1.993L3 11zm14 0a1 1 0 01.117 1.993L17 13a1 1 0 01-.117-1.993L17 11zM4.222 4.222a1 1 0 011.415 0l.707.707a1 1 0 01-1.415 1.415l-.707-.707a1 1 0 010-1.415zm11.314 0a1 1 0 011.415 1.415l-.707.707a1 1 0 01-1.415-1.415l.707-.707zM2 10a1 1 0 01.117 1.993L2 12a1 1 0 01-.117-1.993L2 10zm16 0a1 1 0 01.117 1.993L18 12a1 1 0 01-.117-1.993L18 10zM4.222 15.778a1 1 0 011.415-1.415l.707.707a1 1 0 01-1.415 1.415l-.707-.707zm11.314 0a1 1 0 011.415-1.415l.707.707a1 1 0 01-1.415 1.415l-.707-.707z" clipRule="evenodd" />
+              </svg>
+            )}
+          </button>
 
           <button
             onClick={runCode}
@@ -89,9 +89,8 @@ export default function Compiler() {
             <button
               key={key}
               onClick={() => setSelectedLanguage(key)}
-              className={`w-full p-2 flex justify-center items-center hover:bg-gray-400 ${
-                selectedLanguage === key ? (darkMode ? 'bg-gray-600 border-l-4 border-blue-400' : 'bg-white border-l-4 border-blue-500') : ''
-              }`}
+              className={`w-full p-2 flex justify-center items-center hover:bg-gray-400 ${selectedLanguage === key ? (darkMode ? 'bg-gray-600 border-l-4 border-blue-400' : 'bg-white border-l-4 border-blue-500') : ''
+                }`}
               title={lang.name}
             >
               <img src={lang.icon} alt={lang.name} className="h-6 w-6" />
@@ -127,7 +126,7 @@ export default function Compiler() {
         <div className={`flex-1 min-w-0 border ${darkMode ? 'border-gray-700 bg-gray-900' : 'border-gray-300 bg-white'} rounded-md overflow-hidden flex flex-col`}>
           <div className={`px-4 py-2 border-b ${darkMode ? 'border-gray-700 bg-gray-800 text-white' : 'border-gray-300 bg-gray-100 text-black'} flex justify-between`}>
             <span className="font-bold">Output</span>
-            <button 
+            <button
               onClick={() => setOutput('')}
               className="text-xs hover:underline"
             >

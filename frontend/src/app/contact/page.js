@@ -45,22 +45,22 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="h-screen flex items-center justify-center bg-[#2e4a8d] px-4 bg-[url('/noise-texture.png')] bg-cover overflow-hidden">
-      <div className="bg-white mt-15 h-[86%] w-full max-w-4xl shadow-2xl rounded-2xl overflow-hidden flex flex-col md:flex-row items-center group transition-transform duration-500 ease-in-out">
-
+    <div className="min-h-screen flex items-center justify-center bg-[#2e4a8d] mt-7 px-4 py-10 bg-[url('/noise-texture.png')] bg-cover">
+      <div className="bg-white w-full max-w-4xl shadow-2xl rounded-2xl overflow-hidden flex flex-col md:flex-row">
+        
         {/* Image Section */}
-        <div className="md:w-1/2 w-full h-full p-4 bg-[#f5f7fa] flex items-center justify-center">
+        <div className="md:w-1/2 w-full h-64 md:h-auto bg-[#f5f7fa] flex items-center justify-center p-4">
           <img
             src="/loginpic.png"
             alt="Contact Illustration"
-            className="max-h-full w-auto object-contain transform group-hover:scale-105 transition-transform duration-500 ease-in-out"
+            className="max-h-full w-auto object-contain transform hover:scale-105 transition-transform duration-500 ease-in-out"
           />
         </div>
 
         {/* Form Section */}
         <form
           onSubmit={handleSubmit}
-          className="md:w-1/2 w-full h-full p-6 overflow-y-auto space-y-4 bg-white flex flex-col justify-center"
+          className="md:w-1/2 w-full p-6 space-y-4 bg-white flex flex-col justify-center"
         >
           <h1 className="text-2xl font-bold text-center text-gray-800">Contact Us 📬</h1>
 

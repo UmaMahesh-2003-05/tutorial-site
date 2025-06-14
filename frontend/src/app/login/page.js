@@ -45,16 +45,15 @@ export default function LoginPage() {
 
   return (
     <div
-      className="min-h-screen bg-cover bg-center flex items-center justify-start"
-      style={{
-        backgroundImage: `url('/bg-login1.jpg')`, // Replace with your actual image path
-      }}
+      className="min-h-screen bg-cover bg-center flex items-center justify-center px-4 sm:px-6"
+      style={{ backgroundImage: `url('/bg-login1.jpg')` }}
     >
-      <div className="w-full max-w-7xl grid grid-cols-12">
-        {/* Left: Login Form (4/12) */}
-        <div className="col-span-12 md:col-span-4 bg-white/90 bg-opacity-90 backdrop-blur-md p-8 md:min-h-screen flex flex-col justify-center shadow-xl">
-          <form onSubmit={handleLogin} className="space-y-6">
-            <h1 className="text-3xl font-bold text-gray-800">Log in to your account😊</h1>
+      <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-12 gap-4">
+        
+        {/* Left: Login Form */}
+        <div className="col-span-12 md:col-span-4 bg-white/90 backdrop-blur-md p-4 sm:p-6 md:p-8 rounded-lg shadow-lg flex flex-col justify-center">
+          <form onSubmit={handleLogin} className="space-y-8">
+            <h1 className="text-3xl font-bold text-gray-800">Log in to your account 😊</h1>
 
             <div>
               <label className="text-gray-600 text-sm font-medium">Email Address</label>
@@ -64,7 +63,7 @@ export default function LoginPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="w-full mt-1 px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-50"
+                className="w-full mt-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-50"
               />
             </div>
 
@@ -76,7 +75,7 @@ export default function LoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="w-full mt-1 px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-50"
+                className="w-full mt-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-50"
               />
             </div>
 
@@ -86,28 +85,25 @@ export default function LoginPage() {
 
             <button
               type="submit"
-              className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#4a6fcb] to-[#2e4a8d]
-              text-white font-medium hover:from-[#3b5caa] hover:to-[#1a274d] transition-all shadow hover:shadow-lg"
+              className="w-full py-3 rounded-lg bg-gradient-to-r from-[#4a6fcb] to-[#2e4a8d] text-white font-medium hover:from-[#3b5caa] hover:to-[#1a274d] transition shadow hover:shadow-md"
             >
               Login
             </button>
 
-            <p className="text-md text-gray-600 text-center">
-              Don&apos;t have an account?
+            <p className="text-sm text-gray-600 text-center">
+              Don’t have an account?
               <a href="/signup" className="ml-1 text-blue-600 font-semibold underline hover:text-blue-800">Sign up</a>
             </p>
           </form>
         </div>
 
-        {/* Right: Background area (8/12) with text */}
-       <div className="hidden md:flex col-span-8 items-start justify-start px-10 pt-10 text-white">
-  <p className="text-3xl font-semibold leading-snug max-w-2xl text-white bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-none p-6 rounded-2xl shadow-xl">
-  If you regret your past, this is the perfect moment to rewrite your future.
-</p>
-</div>
-
+        {/* Right: Quote Text */}
+        <div className="hidden md:flex col-span-8 items-start justify-start px-10  text-white">
+          <p className="text-3xl font-semibold leading-snug max-w-2xl bg-gradient-to-br from-white/10 to-white/5 p-6 rounded-2xl shadow-xl">
+            If you regret your past, this is the perfect moment to rewrite your future.
+          </p>
+        </div>
       </div>
     </div>
   );
 }
-
