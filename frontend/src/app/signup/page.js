@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { EnvelopeIcon, LockClosedIcon, UserIcon } from '@heroicons/react/24/solid';
 
 export default function SignupPage() {
   const router = useRouter();
@@ -44,7 +45,7 @@ export default function SignupPage() {
 
         {/* Left: Quote */}
         <div className="hidden md:flex col-span-8 items-start justify-start px-18 text-white">
-          <p className="text-3xl font-semibold leading-snug max-w-2xl bg-gradient-to-br from-white/10 to-white/5 p-6 rounded-2xl shadow-xl">
+          <p className="text-3xl text-transparent bg-clip-text font-bold leading-snug max-w-2xl bg-gradient-to-br from-white to-amber-100 p-6 rounded-2xl shadow-xl">
             You&rsquo;re exactly where you need to be. Keep going.
           </p>
         </div>
@@ -52,61 +53,79 @@ export default function SignupPage() {
         {/* Right: Signup Form */}
         <form
           onSubmit={handleSubmit}
-          className="col-span-12 md:col-span-4 bg-white/90 backdrop-blur-md p-4 sm:p-6 md:p-8 rounded-lg shadow-lg flex flex-col justify-center space-y-6"
+          className="col-span-12 md:col-span-4 backdrop-blur-md border border-white/70 p-4 sm:p-6 md:p-8 rounded-lg shadow-lg flex flex-col justify-center space-y-8"
         >
-          <h1 className="text-3xl font-bold text-gray-800 text-center">Create Account 😁</h1>
+          {/* Glowing Heading */}
+          <h1 className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-500 to-pink-500 animate-pulse text-center">
+            Create your account 
+          </h1>
 
+          {/* Name Field */}
           <div>
-            <label className="text-gray-600 text-sm font-medium">Name</label>
-            <input
-              type="text"
-              name="name"
-              placeholder="Your name"
-              value={form.name}
-              onChange={handleChange}
-              required
-              className="w-full mt-1 px-4 py-3 border border-gray-300 rounded-lg bg-gray-50 focus:ring-2 focus:ring-blue-500"
-            />
+            <label className="text-white text-sm font-medium mb-1 block">Name :</label>
+            <div className="relative">
+              <UserIcon className="absolute left-3 top-3.5 w-5 h-5 text-amber-600" />
+              <input
+                type="text"
+                name="name"
+                placeholder="Your name"
+                value={form.name}
+                onChange={handleChange}
+                required
+                className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 bg-white/80 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-500 transition-all placeholder-gray-500"
+              />
+            </div>
           </div>
 
+          {/* Email Field */}
           <div>
-            <label className="text-gray-600 text-sm font-medium">Email</label>
-            <input
-              type="email"
-              name="email"
-              placeholder="you@example.com"
-              value={form.email}
-              onChange={handleChange}
-              required
-              className="w-full mt-1 px-4 py-3 border border-gray-300 rounded-lg bg-gray-50 focus:ring-2 focus:ring-blue-500"
-            />
+            <label className="text-white text-sm font-medium mb-1 block">Email Address :</label>
+            <div className="relative">
+              <EnvelopeIcon className="absolute left-3 top-3.5 w-5 h-5 text-amber-400" />
+              <input
+                type="email"
+                name="email"
+                placeholder="you@example.com"
+                value={form.email}
+                onChange={handleChange}
+                required
+                className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 bg-white/80 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-500 transition-all placeholder-gray-500"
+              />
+            </div>
           </div>
 
+          {/* Password Field */}
           <div>
-            <label className="text-gray-600 text-sm font-medium">Password</label>
-            <input
-              type="password"
-              name="password"
-              placeholder="••••••••"
-              value={form.password}
-              onChange={handleChange}
-              required
-              className="w-full mt-1 px-4 py-3 border border-gray-300 rounded-lg bg-gray-50 focus:ring-2 focus:ring-blue-500"
-            />
+            <label className="text-white text-sm font-medium mb-1 block">Password :</label>
+            <div className="relative">
+              <LockClosedIcon className="absolute left-3 top-3.5 w-5 h-5 text-amber-400" />
+              <input
+                type="password"
+                name="password"
+                placeholder="••••••••"
+                value={form.password}
+                onChange={handleChange}
+                required
+                className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 bg-white/80 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-purple-500 transition-all placeholder-gray-500"
+              />
+            </div>
           </div>
 
+          {/* Error Message */}
           {error && <p className="text-red-500 text-sm text-center">{error}</p>}
 
+          {/* Submit Button */}
           <button
             type="submit"
-            className="w-full px-4 py-3 rounded-xl bg-gradient-to-r from-[#4a6fcb] to-[#2e4a8d] text-white font-semibold shadow hover:shadow-lg hover:from-[#3b5caa] hover:to-[#1a274d] transition-all"
+            className="w-full py-3 rounded-lg bg-gradient-to-r from-purple-600 via-blue-500 to-indigo-500 text-white font-semibold hover:brightness-110 hover:shadow-lg hover:shadow-purple-400/40 transition-all"
           >
             Register
           </button>
 
-          <p className="text-center text-md text-gray-600">
+          {/* Footer */}
+          <p className="text-sm text-white text-center">
             Already have an account?
-            <a href="/login" className="ml-2 text-blue-600 font-semibold underline hover:text-blue-800">Login</a>
+            <a href="/login" className="ml-1 text-blue-600 font-semibold underline hover:text-blue-800">Login</a>
           </p>
         </form>
       </div>

@@ -50,24 +50,23 @@ export default function Compiler() {
   return (
     <div className={`font-sans ${darkMode ? 'bg-black text-white' : 'bg-gray-200 text-black'} min-h-screen max-w-[1800px] mx-auto p-4`}>
       <div className="flex justify-between items-center mt-14 mb-4">
-        <h1 className="text-2xl font-bold">
+        <h1 className="text-xl md:text-2xl font-bold">
           Online {languages[selectedLanguage]?.name} Compiler
-          {slug && ` for Tutorial`}
         </h1>
         <div className="flex gap-2">
           <button
             onClick={() => setDarkMode(!darkMode)}
             className={`w-10 h-10 flex items-center justify-center rounded-full transition-colors duration-300
-    ${darkMode ? 'bg-gray-700 hover:bg-gray-600' : 'bg-gray-300 hover:bg-gray-400'}`}
+            ${darkMode ? 'bg-gray-700 hover:bg-gray-600' : 'bg-gray-300 hover:bg-gray-400'}`}
             title="Toggle Theme"
           >
             {darkMode ? (
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
-                <path d="M10 2a8 8 0 106.32 3.16A9 9 0 0110 2z" />
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-800" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M21 12.79A9 9 0 0112.21 3a7 7 0 100 14 9 9 0 008.79-4.21z" />
               </svg>
             ) : (
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-800" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M10 2a1 1 0 01.993.883L11 3v1a1 1 0 01-1.993.117L9 4V3a1 1 0 011-1zm0 12a4 4 0 100-8 4 4 0 000 8zm-7-3a1 1 0 01.117 1.993L3 13a1 1 0 01-.117-1.993L3 11zm14 0a1 1 0 01.117 1.993L17 13a1 1 0 01-.117-1.993L17 11zM4.222 4.222a1 1 0 011.415 0l.707.707a1 1 0 01-1.415 1.415l-.707-.707a1 1 0 010-1.415zm11.314 0a1 1 0 011.415 1.415l-.707.707a1 1 0 01-1.415-1.415l.707-.707zM2 10a1 1 0 01.117 1.993L2 12a1 1 0 01-.117-1.993L2 10zm16 0a1 1 0 01.117 1.993L18 12a1 1 0 01-.117-1.993L18 10zM4.222 15.778a1 1 0 011.415-1.415l.707.707a1 1 0 01-1.415 1.415l-.707-.707zm11.314 0a1 1 0 011.415-1.415l.707.707a1 1 0 01-1.415 1.415l-.707-.707z" clipRule="evenodd" />
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-400" viewBox="0 0 24 24" fill="currentColor">
+                 <path d="M12 18a6 6 0 100-12 6 6 0 000 12zm0-16a1 1 0 011 1v2a1 1 0 11-2 0V3a1 1 0 011-1zm0 18a1 1 0 011 1v2a1 1 0 11-2 0v-2a1 1 0 011-1zm10-8a1 1 0 010 2h-2a1 1 0 110-2h2zM4 12a1 1 0 010 2H2a1 1 0 110-2h2zm14.95-7.05a1 1 0 010 1.414L17.364 7.95a1 1 0 11-1.414-1.414l1.586-1.586a1 1 0 011.414 0zM6.636 16.95a1 1 0 010 1.414L5.05 19.95a1 1 0 11-1.414-1.414l1.586-1.586a1 1 0 011.414 0zM6.636 7.05a1 1 0 00-1.414 0L3.636 8.636a1 1 0 101.414 1.414l1.586-1.586a1 1 0 000-1.414zm11.314 9.9a1 1 0 00-1.414 0l-1.586 1.586a1 1 0 001.414 1.414l1.586-1.586a1 1 0 000-1.414z" />
               </svg>
             )}
           </button>
@@ -82,15 +81,35 @@ export default function Compiler() {
         </div>
       </div>
 
-      <div className="flex gap-4 h-[70vh]">
-        {/* Language Icons */}
-        <div className={`w-16 ${darkMode ? 'bg-gray-500 border-gray-700' : 'bg-gray-100 border-gray-300'} border-r overflow-y-auto max-h-[70vh] custom-scrollbar`}>
+      {/* Language Picker for small screens */}
+      <div className="block md:hidden mb-2">
+        <select
+          value={selectedLanguage}
+          onChange={(e) => setSelectedLanguage(e.target.value)}
+          className="w-full p-2 rounded border border-gray-300 dark:bg-gray-800 dark:text-white"
+        >
+          {Object.entries(languages).map(([key, lang]) => (
+            <option key={key} value={key}>
+              {lang.name}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      <div className="flex flex-col md:flex-row gap-4 h-auto md:h-[70vh]">
+        {/* Sidebar for md+ screens */}
+        <div className={`hidden md:block w-16 ${darkMode ? 'bg-gray-500 border-gray-700' : 'bg-gray-100 border-gray-300'} border-r overflow-y-auto max-h-[70vh] custom-scrollbar`}>
           {Object.entries(languages).map(([key, lang]) => (
             <button
               key={key}
               onClick={() => setSelectedLanguage(key)}
-              className={`w-full p-2 flex justify-center items-center hover:bg-gray-400 ${selectedLanguage === key ? (darkMode ? 'bg-gray-600 border-l-4 border-blue-400' : 'bg-white border-l-4 border-blue-500') : ''
-                }`}
+              className={`w-full p-2 flex justify-center items-center hover:bg-gray-400 ${
+                selectedLanguage === key
+                  ? darkMode
+                    ? 'bg-gray-600 border-l-4 border-blue-400'
+                    : 'bg-white border-l-4 border-blue-500'
+                  : ''
+              }`}
               title={lang.name}
             >
               <img src={lang.icon} alt={lang.name} className="h-6 w-6" />
@@ -98,8 +117,8 @@ export default function Compiler() {
           ))}
         </div>
 
-        {/* Editor Panel */}
-        <div className={`flex-1 min-w-0 border ${darkMode ? 'border-gray-700 bg-gray-900' : 'border-gray-300 bg-white'} rounded-md overflow-hidden flex flex-col`}>
+        {/* Editor */}
+        <div className={`flex-1 min-w-0 border ${darkMode ? 'border-gray-700 bg-gray-900' : 'border-gray-300 bg-white'} rounded-md overflow-hidden flex flex-col h-[300px] md:h-auto`}>
           <div className={`px-4 py-2 border-b ${darkMode ? 'border-gray-700 bg-gray-800 text-white' : 'border-gray-300 bg-gray-100 text-black'} flex justify-between`}>
             <span className="font-mono text-sm">{languages[selectedLanguage]?.filename}</span>
             <span className="text-xs">{languages[selectedLanguage]?.name}</span>
@@ -122,8 +141,8 @@ export default function Compiler() {
           </div>
         </div>
 
-        {/* Output Panel */}
-        <div className={`flex-1 min-w-0 border ${darkMode ? 'border-gray-700 bg-gray-900' : 'border-gray-300 bg-white'} rounded-md overflow-hidden flex flex-col`}>
+        {/* Output */}
+        <div className={`flex-1 min-w-0 border ${darkMode ? 'border-gray-700 bg-gray-900' : 'border-gray-300 bg-white'} rounded-md overflow-hidden flex flex-col h-[200px] md:h-auto`}>
           <div className={`px-4 py-2 border-b ${darkMode ? 'border-gray-700 bg-gray-800 text-white' : 'border-gray-300 bg-gray-100 text-black'} flex justify-between`}>
             <span className="font-bold">Output</span>
             <button
@@ -133,7 +152,7 @@ export default function Compiler() {
               Clear
             </button>
           </div>
-          <pre className={`flex-1 p-4 overflow-auto font-mono text-sm whitespace-pre-wrap ${darkMode ? 'bg-gray-900 text-white' : 'bg-white text-black'}`}>
+          <pre className={`flex-1 p-4 overflow-auto font-mono text-sm whitespace-pre-wrap ${darkMode ? 'bg-gray-900 text-white' : 'bg-white text-black'} min-h-[200px]`}>
             {output || 'No output yet. Click "Run" to execute your code.'}
           </pre>
         </div>
