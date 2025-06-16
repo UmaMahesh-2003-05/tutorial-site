@@ -43,19 +43,19 @@ export default function SignupPage() {
     >
       <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-12 gap-4">
 
-        {/* Left: Quote */}
+        {/* Quote */}
         <div className="hidden md:flex col-span-8 items-start justify-start px-18 text-white">
           <p className="text-3xl text-transparent bg-clip-text font-bold leading-snug max-w-2xl bg-gradient-to-br from-white to-amber-100 p-6 rounded-2xl shadow-xl">
             You&rsquo;re exactly where you need to be. Keep going.
           </p>
         </div>
 
-        {/* Right: Signup Form */}
+        {/* Signup Form */}
         <form
           onSubmit={handleSubmit}
           className="col-span-12 md:col-span-4 backdrop-blur-md border border-white/70 p-4 sm:p-6 md:p-8 rounded-lg shadow-lg flex flex-col justify-center space-y-8"
         >
-          {/* Glowing Heading */}
+          {/* Heading */}
           <h1 className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-500 to-pink-500 animate-pulse text-center">
             Create your account 
           </h1>
@@ -122,7 +122,6 @@ export default function SignupPage() {
             Register
           </button>
 
-          {/* Footer */}
           <p className="text-sm text-white text-center">
             Already have an account?
             <a href="/login" className="ml-1 text-blue-600 font-semibold underline hover:text-blue-800">Login</a>

@@ -56,7 +56,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-white text-gray-800">
 
-      {/* Hero Section with Animated Slider */}
+      {/* Main Section */}
       <AnimatePresence>
         <section className="min-h-screen bg-[url('/bgimg1.jpg')] bg-cover bg-center flex items-center justify-center overflow-hidden py-16 px-4 sm:px-6 lg:px-8">
           <div className="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
@@ -178,7 +178,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Why Tech Section */}
+      {/* Choose Tech */}
       <section className="bg-white py-20">
         <div className="container mx-auto px-4">
           <motion.h2
@@ -188,7 +188,7 @@ export default function AboutPage() {
             transition={{ duration: 0.6 }}
             className="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-12"
           >
-            Why Only Tech?
+            Choose Tech?
           </motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {techReasons.map((reason, index) => (

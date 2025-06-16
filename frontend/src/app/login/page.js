@@ -51,10 +51,10 @@ export default function LoginPage() {
     >
       <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10">
         
-        {/* Left: Login Form */}
+        {/* Login Form */}
         <div className="col-span-12 md:col-span-4 backdrop-blur-lg border border-white/70 p-6 md:p-8 rounded-xl shadow-2xl">
           <form onSubmit={handleLogin} className="space-y-8">
-            {/* Glowing Heading */}
+            {/* Heading */}
             <h1 className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-500 to-pink-500 animate-pulse text-center">
               Log in to your account 
             </h1>
@@ -104,7 +104,6 @@ export default function LoginPage() {
               Login
             </button>
 
-            {/* Footer */}
             <p className="text-sm text-white text-center">
               Don’t have an account?
               <a href="/signup" className="ml-1 text-blue-600 font-semibold underline hover:text-blue-800">Sign up</a>
@@ -112,7 +111,7 @@ export default function LoginPage() {
           </form>
         </div>
 
-        {/* Right: Quote Text */}
+        {/* Quote */}
         <div className="hidden md:flex col-span-8 items-start justify-start px-10  text-white">
           <p className="text-3xl text-transparent bg-clip-text font-bold leading-snug max-w-2xl bg-gradient-to-br from-white to-blue-300 p-6 rounded-2xl shadow-xl">
             If you regret your past, this is the perfect moment to rewrite your future.

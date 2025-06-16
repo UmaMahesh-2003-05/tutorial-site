@@ -81,7 +81,7 @@ export default function Compiler() {
         </div>
       </div>
 
-      {/* Language Picker for small screens */}
+      {/* Language Picker  */}
       <div className="block md:hidden mb-2">
         <select
           value={selectedLanguage}
@@ -97,7 +97,7 @@ export default function Compiler() {
       </div>
 
       <div className="flex flex-col md:flex-row gap-4 h-auto md:h-[70vh]">
-        {/* Sidebar for md+ screens */}
+        {/* Sidebar */}
         <div className={`hidden md:block w-16 ${darkMode ? 'bg-gray-500 border-gray-700' : 'bg-gray-100 border-gray-300'} border-r overflow-y-auto max-h-[70vh] custom-scrollbar`}>
           {Object.entries(languages).map(([key, lang]) => (
             <button
@@ -125,7 +125,7 @@ export default function Compiler() {
           </div>
           <div className="flex-1">
             <Editor
-              height="100%"
+              height="70vh"
               theme={darkMode ? 'vs-dark' : 'vs'}
               language={selectedLanguage}
               value={code}

@@ -13,22 +13,22 @@ export default function TutorialsPage() {
   const [selectedCategory, setSelectedCategory] = useState('All');
 
   const tutorialImageMap = {
-  'Python-Programming': '/images/python-tutorial.jpg',
-  'Java-Programming': '/images/java-tutorial.jpg',
-  'JavaScript': '/images/javascript-tutorial.jpg',
-  'C-programming': '/images/c-tutorial.jpg',
-  'C++-programming': '/images/cpp-tutorial.jpg',
-  'TypeScript': '/images/typescript-tutorial.jpg',
-  'Ruby-Programming': '/images/ruby-tutorial.jpg',
-  'PHP': '/images/php-tutorial.jpg',
-  'Go': '/images/go-tutorial.jpg',
-  'Swift-Programming': '/images/swift-tutorial.jpg',
-  'R -Programming': '/images/r-tutorial.jpg',
-  'Kotlin': '/images/kotlin-tutorial.jpg',
-  'C#-programming': '/images/csharp-tutorial.jpg',
-  'Bash-programming': '/images/bash-tutorial.jpg',
-  'Rust-Programming': '/images/rust-tutorial.jpg'
-};
+    'Python-Programming': '/images/python-tutorial.jpg',
+    'Java-Programming': '/images/java-tutorial.jpg',
+    'JavaScript': '/images/javascript-tutorial.jpg',
+    'C-programming': '/images/c-tutorial.jpg',
+    'C++-programming': '/images/cpp-tutorial.jpg',
+    'TypeScript': '/images/typescript-tutorial.jpg',
+    'Ruby-Programming': '/images/ruby-tutorial.jpg',
+    'PHP': '/images/php-tutorial.jpg',
+    'Go': '/images/go-tutorial.jpg',
+    'Swift-Programming': '/images/swift-tutorial.jpg',
+    'R -Programming': '/images/r-tutorial.jpg',
+    'Kotlin': '/images/kotlin-tutorial.jpg',
+    'C#-programming': '/images/csharp-tutorial.jpg',
+    'Bash-programming': '/images/bash-tutorial.jpg',
+    'Rust-Programming': '/images/rust-tutorial.jpg'
+  };
 
 
   useEffect(() => {
@@ -96,7 +96,7 @@ export default function TutorialsPage() {
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Search and Filter Section */}
+        {/* Search Section */}
         <section id="tutorials" className="mb-16 text-center">
           <motion.div
             initial={{ opacity: 0 }}
@@ -105,7 +105,7 @@ export default function TutorialsPage() {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl font-bold text-gray-800 mb-8">Find Your Perfect Tutorial</h2>
-            
+
             {/* Search Input */}
             <div className="max-w-xl mx-auto mb-10">
               <input
@@ -118,32 +118,32 @@ export default function TutorialsPage() {
             </div>
 
             {/* Category Filter */}
-           <div className="flex flex-wrap justify-center gap-3">
-  {uniqueCategories.map((cat) => {
-    const isSelected = selectedCategory === cat;
-    return isSelected ? (
-      <div
-        key={cat}
-        className="p-1 rounded-full bg-gradient-to-r from-blue-500 via-green-500 to-purple-500"
-      >
-        <button
-          onClick={() => setSelectedCategory(cat)}
-          className="px-5 py-2 rounded-full text-sm font-medium bg-white text-gray-800 hover:bg-gray-100 transition-all duration-300"
-        >
-          {cat}
-        </button>
-      </div>
-    ) : (
-      <button
-        key={cat}
-        onClick={() => setSelectedCategory(cat)}
-        className="px-5 py-2 rounded-full text-sm font-medium bg-white text-gray-700 hover:bg-gray-100 border border-gray-200 transition-all duration-300"
-      >
-        {cat}
-      </button>
-    );
-  })}
-</div>
+            <div className="flex flex-wrap justify-center gap-3">
+              {uniqueCategories.map((cat) => {
+                const isSelected = selectedCategory === cat;
+                return isSelected ? (
+                  <div
+                    key={cat}
+                    className="p-1 rounded-full bg-gradient-to-r from-blue-500 via-green-500 to-purple-500"
+                  >
+                    <button
+                      onClick={() => setSelectedCategory(cat)}
+                      className="px-5 py-2 rounded-full text-sm font-medium bg-white text-gray-800 hover:bg-gray-100 transition-all duration-300"
+                    >
+                      {cat}
+                    </button>
+                  </div>
+                ) : (
+                  <button
+                    key={cat}
+                    onClick={() => setSelectedCategory(cat)}
+                    className="px-5 py-2 rounded-full text-sm font-medium bg-white text-gray-700 hover:bg-gray-100 border border-gray-200 transition-all duration-300"
+                  >
+                    {cat}
+                  </button>
+                );
+              })}
+            </div>
 
           </motion.div>
         </section>

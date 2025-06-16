@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
-import { EllipsisHorizontalIcon, XMarkIcon } from '@heroicons/react/24/outline'; // TOC Icons
+import { EllipsisHorizontalIcon, XMarkIcon } from '@heroicons/react/24/outline'; 
 import MarkdownRenderer from '@/components/MarkdownRenderer';
 import VideoCard from '@/components/VideoCard';
 import GameCard from '@/components/GameCard';
